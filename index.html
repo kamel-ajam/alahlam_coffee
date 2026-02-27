@@ -179,13 +179,34 @@
       text-align: left;
     }
 
-    .options a {
-      display: block;
-      color: white;
-      padding: 10px;
-      text-decoration: none;
-      border-bottom: 1px solid #ddd;
-    }
+   .options{
+    display:none;
+
+    position:fixed;   /* أهم شي */
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+    width:90%;
+    max-width:320px;
+
+    background:rgba(30,30,30,0.95);
+    backdrop-filter: blur(20px);
+
+    padding:15px;
+    border-radius:20px;
+
+    z-index:9999;
+
+    box-shadow:0 20px 60px rgba(0,0,0,0.7);
+
+    animation:pop .25s ease;
+}
+
+@keyframes pop{
+    from{opacity:0; transform:translate(-50%,-45%) scale(.9)}
+    to{opacity:1; transform:translate(-50%,-50%) scale(1)}
+}
 
     .options a:hover {
       background-color: #34495e;
@@ -307,3 +328,4 @@
 </body>
 
 </html>
+
