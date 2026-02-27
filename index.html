@@ -1,341 +1,212 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<title>بن الأحلام ®</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-    /* الخلفية */
-   body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
+<style>
 
-  align-items: flex-start; /* بدل center عشان يبدأ من فوق */
-  padding: 30px 0;
+/* ================= خلفية ================= */
 
-  overflow-y: auto;        /* يسمح بالسكرول */
-  -webkit-overflow-scrolling: touch; /* لمس ناعم للجوال */
+body{
+  margin:0;
+  font-family:tahoma;
+  text-align:center;
+  overflow-x:hidden;
 
-  background: linear-gradient(-45deg, #6e4e3a, #8b5e3c, #d89b6a, #f1c2a3);
-  background-size: 400% 400%;
-  animation: bgMove 12s ease infinite;
+  background: linear-gradient(135deg,#4b2e1e,#6f4a32,#3d2518);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
 }
 
-    @keyframes bgMove {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* جسيمات تتحرك عشوائيًا */
-    .particle {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background-color: white;
-      border-radius: 50%;
-      opacity: 0.5;
-      animation: float 6s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-25px);
-      }
-    }
-
-    /* الكرت مع تأثيرات */
-    .card {
-      backdrop-filter: blur(22px);
-      background: rgba(255, 255, 255, 0.10);
-      padding: 50px;
-      border-radius: 30px;
-      width: 390px;
-      text-align: center;
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      animation: intro 1.2s ease;
-    }
-
-    @keyframes intro {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    /* الصورة */
-    .avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 18px;
-      border: 4px solid white;
-      box-shadow: 0 0 30px #8f94fb;
-      transition: 0.4s;
-    }
-
-    .avatar:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 60px #4e54c8;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 6px;
-    }
-
-    .job {
-      margin: 6px 0;
-    }
-
-    .company {
-      opacity: 0.8;
-      margin-bottom: 25px;
-    }
-
-    /* الأزرار */
-    .btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      padding: 16px;
-      margin: 12px 0;
-      border-radius: 14px;
-      font-size: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.06);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    .btn:hover {
-      transform: scale(1.12);
-      box-shadow: 0 0 25px white;
-    }
-
-    .whatsapp {
-      background: #25D366;
-      color: white;
-    }
-
-    .instagram {
-      background: #E1306C;
-      color: white;
-    }
-
-    .facebook {
-      background: #1877F2;
-      color: white;
-    }
-
-    .location {
-      background: #f39c12;
-      color: white;
-    }
-
-    /* القائمة المنبثقة */
-     .options {
-      display: none;
-      margin-top: 20px;
-      background-color: #2c3e50;
-      padding: 10px;
-      border-radius: 10px;
-      color: white;
-      text-align: left;
-    }
-
-
-   .options{
-    display:none;
-
-    position:fixed;   /* أهم شي */
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-
-    width:90%;
-    max-width:320px;
-
-    background:rgba(30,30,30,0.95);
-    backdrop-filter: blur(20px);
-
-    padding:15px;
-    border-radius:20px;
-
-    z-index:9999;
-
-    box-shadow:0 20px 60px rgba(0,0,0,0.7);
-
-    animation:pop .25s ease;
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
-@keyframes pop{
-    from{opacity:0; transform:translate(-50%,-45%) scale(.9)}
-    to{opacity:1; transform:translate(-50%,-50%) scale(1)}
+/* ================= حبات القهوة ================= */
+
+.beans{
+  position:fixed;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  top:0;
+  left:0;
+  z-index:-1;
 }
 
-    .options a:hover {
-      background-color: #34495e;
-    }
+.bean{
+  position:absolute;
+  font-size:26px;
+  opacity:.35;
+  animation:float 18s linear infinite;
+}
 
-    /* القائمة المنبثقة لزيارة الفروع */
-    .branch-details {
-      display: none;
-      margin-top: 20px;
-      background-color: #2c3e50;
-      padding: 20px;
-      border-radius: 10px;
-      color: white;
-      text-align: left;
-    }
+@keyframes float{
+  0%{transform:translateY(100vh) rotate(0)}
+  100%{transform:translateY(-120vh) rotate(360deg)}
+}
 
-    .branch-details a {
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-    }
-  </style>
+/* ================= المحتوى ================= */
+
+.container{
+  padding:20px 18px 60px; /* 👈 مسافة من الطرفين */
+  max-width:520px;
+  margin:auto;
+}
+
+/* ================= الأزرار ================= */
+
+.btn{
+  display:block;
+  width:100%;
+  padding:18px;
+  margin:14px 0;
+
+  border-radius:22px;
+  color:white;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:bold;
+
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:.25s;
+}
+
+.btn:hover{transform:scale(1.03)}
+
+/* ألوان */
+
+.whatsapp{background:#25D366}
+.facebook{background:#1877F2}
+.instagram{background:#E1306C}
+.centers{background:#f39c12}
+.main{background:#6c4ab6;color:#fff}
+
+/* ================= القوائم ================= */
+
+.dropdown{
+  display:none;
+  flex-direction:column;
+  gap:10px;
+  margin-top:8px;
+}
+
+.dropbtn{
+  padding:14px;
+  border-radius:18px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* ألوان أرقام الواتس */
+.c1{background:#2ecc71}
+.c2{background:#3498db}
+.c3{background:#9b59b6}
+
+/* صندوق الفروع */
+
+.card{
+  display:none;
+  margin-top:10px;
+  background:#2c3e50;
+  color:white;
+  padding:16px;
+  border-radius:18px;
+  line-height:1.8;
+  font-size:15px;
+}
+
+h2{
+  color:white;
+  margin:25px 0;
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- جسيمات حبات البن -->
-  <script>
-    for (let i = 0; i < 50; i++) {
-      const p = document.createElement("div");
-      p.className = "particle";
-      p.style.left = Math.random() * 100 + "vw";
-      p.style.top = Math.random() * 100 + "vh";
-      p.style.animationDuration = (5 + Math.random() * 10) + "s";
-      document.body.appendChild(p);
-    }
-  </script>
+<!-- حبات القهوة -->
+<div class="beans" id="beans"></div>
 
-  <!-- صوت -->
-  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c08a6a8d4a.mp3" preload="auto"></audio>
+<div class="container">
 
-  <div class="card">
-    <!-- صورتك -->
-    <img src="me.jpg" class="avatar" />
+<h2>للتواصل والاستفسار</h2>
 
-    <h1>شركة بن الأحلام التجارية</h1>
+<!-- واتساب -->
+<button class="btn whatsapp" onclick="toggle('wlist')">
+<i class="fa-brands fa-whatsapp"></i> واتساب
+</button>
 
-    <div class="job">لتجارة أجود أنواع البن ومشتقاته</div>
-    <div class="company">للتواصل والاستفسار</div>
+<div id="wlist" class="dropdown">
+<a class="dropbtn c1" href="https://wa.me/963991254975">الإدارة</a>
+<a class="dropbtn c2" href="https://wa.me/963967599197">المبيعات</a>
+<a class="dropbtn c3" href="https://wa.me/963967599197">الشكاوي</a>
+</div>
 
-    <!-- واتساب (خيارات) -->
-    <a class="btn whatsapp" href="javascript:void(0);" onclick="toggleOptions()">
-      <i class="fab fa-whatsapp"></i> واتساب
-    </a>
+<!-- فيسبوك -->
+<a class="btn facebook" href="#">
+<i class="fa-brands fa-facebook"></i> فيسبوك
+</a>
 
-    <div id="options" class="options">
-      <a href="https://wa.me/963991254975" target="_blank">إدارة الشركة: 963991254975+</a>
-      <a href="https://wa.me/963967599197" target="_blank">قسم المبيعات: 963967599197+</a>
-      <a href="https://wa.me/963967599197" target="_blank">قسم الشكاوي والملاحظات: 963967599197+</a>
-    </div>
+<!-- انستغرام -->
+<a class="btn instagram" href="#">
+<i class="fa-brands fa-instagram"></i> انستغرام
+</a>
 
-    <!-- فيسبوك -->
-    <a class="btn facebook" href="https://www.facebook.com/share/1BTvp5y3am/" target="_blank">
-      <i class="fab fa-facebook"></i>
-      فيسبوك
-    </a>
+<!-- زر المراكز -->
+<button class="btn centers" onclick="toggle('branches')">
+☺️ زورونا في مراكزنا
+</button>
 
-    <!-- انستغرام -->
-    <a class="btn instagram" href="https://www.instagram.com/alahlamcoffee?igsh=eHd2ZzJzYzBjejhz" target="_blank">
-      <i class="fab fa-instagram"></i>
-      انستغرام
-    </a>
+<div id="branches" class="card">
+📍 الفرع الأول: إدلب – حي الضبيط – قرب صيدلية الحكمة<br>
+📍 الفرع الثاني: إدلب – مشروع الرنة<br>
+📍 الفرع الثالث: حلب – الخالدية طلعت سلورة مقابل بروستد بورجو<br>
+📍 الفرع الرابع: اللاذقية – الشاليهات الجنوبية بعد قسم شرطة الرمل الجنوبي بـ 150 متر<br>
+🔜 قريباً في الشام وحمص<br><br>
+🫘 بن الأحلام… الطعم الأصيل بكل فنجان ❤️
+</div>
 
-    <!-- زر مراكزنا -->
-    <a class="btn location" href="javascript:void(0);" onclick="showBranches()">
-      ☺️ زورونا في مراكزنا
-    </a>
+<!-- الموقع الرئيسي -->
+<a class="btn main" href="https://maps.google.com" target="_blank">
+الموقع الرئيسي للشركة
+</a>
 
-    <div id="branchDetails" class="branch-details">
-      زورونا في فروعنا:
-      <br />
-      📍 الفرع الأول: إدلب – حي الضبيط – قرب صيدلية الحكمة
-      <br />
-      📍 الفرع الثاني: إدلب – مشروع الرنة
-      <br />
-      📍 الفرع الثالث: حلب – الخالدية طلعت سلورة مقابل بروستد بورجو
-      <br />
-      📍 الفرع الرابع اللاذقية: الشاليهات الجنوبية بعد قسم شرطة الرمل الجنوبي ب 150 متر
-      <br />
-      🔜 قريبًا في الشام وحمص
-      <br />
-      🫘 بن الأحلام… الطعم الأصيل بكل فنجان ❤️
-    </div>
+</div>
 
-    <!-- زر الموقع الرئيسي -->
-    <a class="btn" style="background: #9b59b6;" href="https://www.google.com/maps/search/%D8%B4%D8%B1%D9%83%D8%A9+%D8%A8%D9%86+%D8%A7%D9%84%D8%A3%D8%AD%D9%84%D8%A7%D9%85+...">
-      الموقع الرئيسي للشركة
-    </a>
-  </div>
+<script>
 
-  <script>
-    function playSound() {
-      document.getElementById("clickSound").play();
-    }
+/* فتح وإغلاق القوائم */
+function toggle(id){
+  let el=document.getElementById(id);
+  el.style.display = el.style.display==="flex" || el.style.display==="block" ? "none" :
+                     (id==="branches"?"block":"flex");
+}
 
-    // Toggle القائمة المنبثقة لواتساب
-    function toggleOptions() {
-      var options = document.getElementById("options");
-      options.style.display = options.style.display === "block" ? "none" : "block";
-    }
+/* توليد حبات قهوة + هال */
+const icons=["🫘","🟤","🌿"];
+const box=document.getElementById("beans");
 
-    // عرض فروع الشركة
-    function showBranches() {
-      var branches = document.getElementById("branchDetails");
-      branches.style.display = branches.style.display === "block" ? "none" : "block";
-    }
-  </script>
+for(let i=0;i<35;i++){
+  let s=document.createElement("span");
+  s.className="bean";
+  s.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+  s.style.left=Math.random()*100+"%";
+  s.style.animationDuration=(12+Math.random()*12)+"s";
+  s.style.fontSize=(18+Math.random()*20)+"px";
+  box.appendChild(s);
+}
+
+</script>
 
 </body>
-
 </html>
-
-
-
-
-
