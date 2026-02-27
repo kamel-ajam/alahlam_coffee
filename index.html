@@ -16,16 +16,21 @@
     }
 
     /* الخلفية */
-    body {
-      height: 100vh;
-      min-display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-y: hidden;
-      background: linear-gradient(-45deg, #6e4e3a, #8b5e3c, #d89b6a, #f1c2a3);
-      background-size: 400% 400%;
-      animation: bgMove 12s ease infinite;
-    }
+   body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  align-items: flex-start; /* بدل center عشان يبدأ من فوق */
+  padding: 30px 0;
+
+  overflow-y: auto;        /* يسمح بالسكرول */
+  -webkit-overflow-scrolling: touch; /* لمس ناعم للجوال */
+
+  background: linear-gradient(-45deg, #6e4e3a, #8b5e3c, #d89b6a, #f1c2a3);
+  background-size: 400% 400%;
+  animation: bgMove 12s ease infinite;
+}
 
     @keyframes bgMove {
       0% {
@@ -329,6 +334,7 @@
 </body>
 
 </html>
+
 
 
 
