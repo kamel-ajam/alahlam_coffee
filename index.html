@@ -4,25 +4,37 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>بن الأحلام ®</title>
+<title>شركة بن الأحلام</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
 
-/* ================= خلفية ================= */
+/* ================= أساسيات ================= */
+
+*{
+  box-sizing:border-box;
+  font-family:Arial;
+}
 
 body{
   margin:0;
-  font-family:tahoma;
-  text-align:center;
-  overflow-x:hidden;
+  padding:30px 15px;
 
-  background: linear-gradient(135deg,#4b2e1e,#6f4a32,#3d2518);
+  min-height:100vh;
+  overflow-y:auto;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  background:linear-gradient(-45deg,#6e4e3a,#8b5e3c,#d89b6a,#f1c2a3);
   background-size:400% 400%;
-  animation:bgMove 12s ease infinite;
+  animation:bgMove 12s infinite ease;
 }
 
+/* حركة الخلفية */
 @keyframes bgMove{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
@@ -31,102 +43,128 @@ body{
 
 /* ================= حبات القهوة ================= */
 
-.beans{
-  position:fixed;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  top:0;
-  left:0;
-  z-index:-1;
-}
-
 .bean{
-  position:absolute;
-  font-size:26px;
-  opacity:.35;
-  animation:float 18s linear infinite;
+  position:fixed;
+  font-size:18px;
+  opacity:.25;
+  animation:float 14s linear infinite;
+  pointer-events:none;
 }
 
 @keyframes float{
-  0%{transform:translateY(100vh) rotate(0)}
-  100%{transform:translateY(-120vh) rotate(360deg)}
+  from{transform:translateY(110vh) rotate(0)}
+  to{transform:translateY(-10vh) rotate(360deg)}
 }
 
-/* ================= المحتوى ================= */
+/* ================= الكرت ================= */
 
-.container{
-  padding:20px 18px 60px; /* 👈 مسافة من الطرفين */
-  max-width:520px;
-  margin:auto;
+.card{
+  width:100%;
+  max-width:390px;
+
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(20px);
+
+  border-radius:28px;
+  padding:35px 22px;
+
+  text-align:center;
+
+  box-shadow:0 25px 70px rgba(0,0,0,.45);
 }
 
-/* ================= الأزرار ================= */
+/* الصورة مع وميض مريح */
+.avatar{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  border:4px solid white;
+  object-fit:cover;
+  margin-bottom:15px;
+
+  box-shadow:0 0 20px rgba(255,255,255,.6);
+  animation:glow 3s ease-in-out infinite;
+}
+
+@keyframes glow{
+  0%,100%{box-shadow:0 0 15px rgba(255,255,255,.5)}
+  50%{box-shadow:0 0 35px rgba(255,255,255,.9)}
+}
+
+/* ================= أزرار ================= */
 
 .btn{
-  display:block;
   width:100%;
-  padding:18px;
-  margin:14px 0;
+  padding:16px;
+  margin:10px 0;
 
-  border-radius:22px;
+  border-radius:20px;
+  font-size:18px;
+  font-weight:bold;
   color:white;
   text-decoration:none;
-  font-size:20px;
-  font-weight:bold;
 
-  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+
+  box-shadow:0 6px 0 rgba(0,0,0,.25);
+  border:2px solid rgba(255,255,255,.35);
+
   transition:.25s;
 }
 
-.btn:hover{transform:scale(1.03)}
+.btn:hover{
+  transform:translateY(-3px);
+}
 
 /* ألوان */
 
-.whatsapp{background:#25D366}
-.facebook{background:#1877F2}
-.instagram{background:#E1306C}
-.centers{background:#f39c12}
-.main{background:#6c4ab6;color:#fff}
+.whatsapp{background:#25D366;}
+.facebook{background:#1877F2;}
+.instagram{background:#E1306C;}
+.branches{background:#f39c12;}
+.map{background:#8e44ad;}
 
 /* ================= القوائم ================= */
 
 .dropdown{
-  display:none;
+  overflow:hidden;
+  max-height:0;
+  opacity:0;
+  transition:.35s;
+  display:flex;
   flex-direction:column;
-  gap:10px;
-  margin-top:8px;
+  gap:7px;
 }
 
-.dropbtn{
-  padding:14px;
-  border-radius:18px;
+.dropdown.open{
+  max-height:500px;
+  opacity:1;
+}
+
+/* أزرار صغيرة */
+
+.sub-btn{
+  padding:11px;
+  border-radius:15px;
+  font-size:14px;
   color:white;
   text-decoration:none;
-  font-weight:bold;
 }
 
-/* ألوان أرقام الواتس */
-.c1{background:#2ecc71}
-.c2{background:#3498db}
-.c3{background:#9b59b6}
+.admin{background:#1faa59;}
+.sales{background:#16a085;}
+.support{background:#6c5ce7;}
 
-/* صندوق الفروع */
-
-.card{
-  display:none;
-  margin-top:10px;
+.branches-box{
   background:#2c3e50;
   color:white;
-  padding:16px;
-  border-radius:18px;
-  line-height:1.8;
-  font-size:15px;
-}
-
-h2{
-  color:white;
-  margin:25px 0;
+  padding:15px;
+  border-radius:15px;
+  font-size:14px;
+  line-height:1.9;
 }
 
 </style>
@@ -134,76 +172,79 @@ h2{
 
 <body>
 
-<!-- حبات القهوة -->
-<div class="beans" id="beans"></div>
+<div class="card">
 
-<div class="container">
+<img src="me.jpg" class="avatar">
 
-<h2>للتواصل والاستفسار</h2>
+<h2>شركة بن الأحلام التجارية ®</h2>
+<p>لتجارة أجود أنواع البن ومشتقاته</p>
+<p>للتواصل والاستفسار</p>
 
 <!-- واتساب -->
-<button class="btn whatsapp" onclick="toggle('wlist')">
+<button class="btn whatsapp" onclick="toggle('whats')">
 <i class="fa-brands fa-whatsapp"></i> واتساب
 </button>
 
-<div id="wlist" class="dropdown">
-<a class="dropbtn c1" href="https://wa.me/963991254975">الإدارة</a>
-<a class="dropbtn c2" href="https://wa.me/963967599197">المبيعات</a>
-<a class="dropbtn c3" href="https://wa.me/963967599197">الشكاوي</a>
+<div id="whats" class="dropdown">
+<a href="https://wa.me/963991254975" target="_blank" class="sub-btn admin">الإدارة</a>
+<a href="https://wa.me/963967599197" target="_blank" class="sub-btn sales">المبيعات</a>
+<a href="https://wa.me/963967599197" target="_blank" class="sub-btn support">الشكاوي</a>
 </div>
 
 <!-- فيسبوك -->
-<a class="btn facebook" href="#">
+<a class="btn facebook"
+href="https://www.facebook.com/share/1BTvp5y3am/"
+target="_blank">
 <i class="fa-brands fa-facebook"></i> فيسبوك
 </a>
 
 <!-- انستغرام -->
-<a class="btn instagram" href="#">
+<a class="btn instagram"
+href="https://www.instagram.com/alahlamcoffee?igsh=eHd2ZzJzYzBjejhz"
+target="_blank">
 <i class="fa-brands fa-instagram"></i> انستغرام
 </a>
 
-<!-- زر المراكز -->
-<button class="btn centers" onclick="toggle('branches')">
+<!-- الفروع -->
+<button class="btn branches" onclick="toggle('branches')">
 ☺️ زورونا في مراكزنا
 </button>
 
-<div id="branches" class="card">
-📍 الفرع الأول: إدلب – حي الضبيط – قرب صيدلية الحكمة<br>
-📍 الفرع الثاني: إدلب – مشروع الرنة<br>
-📍 الفرع الثالث: حلب – الخالدية طلعت سلورة مقابل بروستد بورجو<br>
-📍 الفرع الرابع: اللاذقية – الشاليهات الجنوبية بعد قسم شرطة الرمل الجنوبي بـ 150 متر<br>
-🔜 قريباً في الشام وحمص<br><br>
-🫘 بن الأحلام… الطعم الأصيل بكل فنجان ❤️
+<div id="branches" class="dropdown">
+<div class="branches-box">
+📍 إدلب – حي الضبيط<br>
+📍 إدلب – مشروع الرنة<br>
+📍 حلب – الخالدية<br>
+📍 اللاذقية<br>
+🔜 قريباً في الشام وحمص ❤️
+</div>
 </div>
 
-<!-- الموقع الرئيسي -->
-<a class="btn main" href="https://maps.google.com" target="_blank">
+<!-- الموقع -->
+<a class="btn map"
+href="https://maps.google.com"
+target="_blank">
 الموقع الرئيسي للشركة
 </a>
 
 </div>
 
+
 <script>
 
-/* فتح وإغلاق القوائم */
 function toggle(id){
-  let el=document.getElementById(id);
-  el.style.display = el.style.display==="flex" || el.style.display==="block" ? "none" :
-                     (id==="branches"?"block":"flex");
+  document.getElementById(id).classList.toggle("open");
 }
 
-/* توليد حبات قهوة + هال */
-const icons=["🫘","🟤","🌿"];
-const box=document.getElementById("beans");
-
-for(let i=0;i<35;i++){
-  let s=document.createElement("span");
-  s.className="bean";
-  s.innerHTML=icons[Math.floor(Math.random()*icons.length)];
-  s.style.left=Math.random()*100+"%";
-  s.style.animationDuration=(12+Math.random()*12)+"s";
-  s.style.fontSize=(18+Math.random()*20)+"px";
-  box.appendChild(s);
+/* حبات قهوة */
+for(let i=0;i<25;i++){
+  let b=document.createElement("div");
+  b.className="bean";
+  b.innerHTML="☕";
+  b.style.left=Math.random()*100+"vw";
+  b.style.animationDuration=(10+Math.random()*10)+"s";
+  b.style.fontSize=(14+Math.random()*16)+"px";
+  document.body.appendChild(b);
 }
 
 </script>
